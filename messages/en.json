@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "title": "Hello world!",
-    "description": "Welcome to our internationalized app"
+    "title": "QuickInfographics",
+    "description": "Turn YouTube videos into beautiful infographics"
   },
   "LanguageSwitcher": {
     "label": "Language",
@@ -10,75 +10,55 @@
   },
   "Auth": {
     "title": "Sign in to your account",
-    "subtitle": "Continue with your Google account",
+    "signUpTitle": "Create your account",
+    "subtitle": "Choose your preferred sign-in method",
     "googleButton": "Continue with Google",
+    "or": "or",
+    "namePlaceholder": "Full name",
+    "emailPlaceholder": "Email address",
+    "passwordPlaceholder": "Password (min 8 characters)",
+    "emailButton": "Sign in with email",
+    "signUpButton": "Create account",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUpLink": "Sign up",
+    "signInLink": "Sign in",
+    "errorGeneric": "Something went wrong. Please try again.",
     "loading": "Loading..."
   },
   "Dashboard": {
-    "title": "Dashboard",
-    "welcome": "Welcome, {name}!",
-    "description": "You are now signed in to your dashboard.",
-    "signOut": "Sign out",
-    "loading": "Loading..."
+    "title": "Create Infographic",
+    "loading": "Loading...",
+    "credits": "credits",
+    "credit": "credit",
+    "outOfCredits": "You're out of credits",
+    "buyCredits": "Buy More Credits",
+    "buyCreditsDesc": "Choose a credit pack to continue creating infographics.",
+    "buyButton": "Buy {credits} Credits",
+    "maybeLater": "Maybe Later",
+    "buyToGenerate": "Buy Credits to Generate",
+    "generating": "Generating...",
+    "oneCredit": "1 credit"
   },
-  "Landing": {
-    "nav": {
-      "brand": "Starter",
-      "features": "Features",
-      "stack": "Stack",
-      "signIn": "Sign In",
-      "getStarted": "Get Started"
-    },
-    "hero": {
-      "badge": "Open Source Starter Template",
-      "title": "Every Great Product",
-      "titleHighlight": "Starts Right Here",
-      "description": "Auth, i18n, database, and UI components — all production-ready. Stop configuring infrastructure. Start building what matters.",
-      "cta": "Start Building",
-      "ctaSecondary": "Explore Features",
-      "terminal": {
-        "auth": "Authentication configured (Better Auth + Google OAuth)",
-        "i18n": "Internationalization ready (EN/ES with next-intl)",
-        "database": "Database connected (PostgreSQL + Prisma ORM)",
-        "ui": "UI components installed (shadcn/ui + Tailwind CSS)",
-        "ready": "\u2713 Ready on http://localhost:3000"
-      }
-    },
+  "Pricing": {
+    "title": "Pay per infographic",
+    "subtitle": "Start with 1 free credit. Buy more when you need them — no subscriptions.",
+    "starter": "Starter",
+    "popular": "Popular",
+    "pro": "Pro",
+    "mostPopular": "Most Popular",
+    "bestValue": "Best Value",
+    "perCredit": "per infographic",
+    "save25": "Save 25%",
     "features": {
-      "label": "Built-in Features",
-      "title": "Everything you need to ship faster",
-      "description": "Every great product starts with a solid foundation. This starter gives you the essentials so you can focus on what makes your app unique.",
-      "auth": {
-        "title": "Authentication",
-        "description": "Pre-configured with Better Auth supporting email/password and Google OAuth. Session management, protected routes, and user profiles — ready out of the box."
-      },
-      "i18n": {
-        "title": "Internationalization",
-        "description": "Full i18n setup with next-intl. English and Spanish included as a starting point. Cookie-based locale switching with server-side rendering support."
-      },
-      "database": {
-        "title": "Database & ORM",
-        "description": "PostgreSQL with Prisma ORM, pre-configured with auth tables, migrations, and a singleton client pattern. Ready for your data models."
-      },
-      "components": {
-        "title": "UI Components",
-        "description": "Beautiful, accessible components from shadcn/ui with Radix primitives. Tailwind CSS v4, dark mode support, and a consistent design system baked in."
-      }
+      "credits": "{count} infographic credits",
+      "ratios": "All 3 aspect ratios",
+      "hdDownloads": "HD quality downloads",
+      "neverExpire": "Credits never expire",
+      "bonusCredits": "2 bonus credits included",
+      "bestPrice": "Best price per infographic"
     },
-    "stack": {
-      "title": "Built on modern foundations",
-      "description": "Carefully selected technologies that work beautifully together. No compromises."
-    },
-    "cta": {
-      "badge": "Your Journey Starts Here",
-      "title": "Your launchpad is ready",
-      "description": "Clone it. Configure it. Ship it. The foundation is built — now go create something the world needs.",
-      "button": "Start Building Now"
-    },
-    "footer": {
-      "copyright": "Next.js Starter Template. All rights reserved.",
-      "tagline": "Built for builders who ship."
-    }
+    "getStarted": "Get Started"
   },
   "Changelog": {
     "title": "Changelog",

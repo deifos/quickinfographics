@@ -1,16 +1,24 @@
 'use client'
 
-import { signIn, useSession } from '@/lib/auth-client'
+import { signIn, signUp, useSession } from '@/lib/auth-client'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
+import { Zap, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 
 export default function LoginPage() {
   const t = useTranslations('Auth')
   const router = useRouter()
   const { data: session, isPending } = useSession()
+
+  const [isSignUp, setIsSignUp] = useState(false)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (session) {
@@ -25,6 +33,40 @@ export default function LoginPage() {
     })
   }
 
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+
+    try {
+      if (isSignUp) {
+        const result = await signUp.email({
+          name,
+          email,
+          password,
+        })
+        if (result.error) {
+          setError(result.error.message || t('errorGeneric'))
+          return
+        }
+      } else {
+        const result = await signIn.email({
+          email,
+          password,
+        })
+        if (result.error) {
+          setError(result.error.message || t('errorGeneric'))
+          return
+        }
+      }
+      router.push('/dashboard')
+    } catch {
+      setError(t('errorGeneric'))
+    } finally {
+      setLoading(false)
+    }
+  }
+
   if (isPending) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-zinc-900">
@@ -35,19 +77,18 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-zinc-900">
-      <div className="w-full max-w-md space-y-8 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="w-full max-w-md space-y-6 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
         <div className="text-center">
-          <Link href="/" className="mb-6 inline-flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <span className="text-sm font-bold text-primary-foreground">R</span>
+          <Link href="/" className="mb-6 inline-flex items-center gap-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-teal-600 shadow-md shadow-primary/20 dark:to-teal-300">
+              <Zap className="h-4 w-4 text-white dark:text-black" />
             </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
-              <span className="rounded bg-black px-1 text-white dark:bg-white dark:text-black">reno</span>
-              sync
+            <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              QuickInfographics
             </span>
           </Link>
           <h1 className="mt-6 text-2xl font-bold text-gray-900 dark:text-white">
-            {t('title')}
+            {isSignUp ? t('signUpTitle') : t('title')}
           </h1>
           <p className="mt-2 text-muted-foreground">
             {t('subtitle')}
@@ -80,6 +121,73 @@ export default function LoginPage() {
           </svg>
           {t('googleButton')}
         </Button>
+
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-200 dark:border-zinc-700" />
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="bg-white px-3 text-muted-foreground dark:bg-zinc-900">
+              {t('or')}
+            </span>
+          </div>
+        </div>
+
+        <form onSubmit={handleEmailSubmit} className="space-y-4">
+          {isSignUp && (
+            <input
+              type="text"
+              placeholder={t('namePlaceholder')}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-primary/50 focus:bg-white focus:ring-2 focus:ring-primary/20 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
+            />
+          )}
+          <input
+            type="email"
+            placeholder={t('emailPlaceholder')}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-primary/50 focus:bg-white focus:ring-2 focus:ring-primary/20 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
+          />
+          <input
+            type="password"
+            placeholder={t('passwordPlaceholder')}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength={8}
+            className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-primary/50 focus:bg-white focus:ring-2 focus:ring-primary/20 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
+          />
+
+          {error && (
+            <p className="text-sm text-destructive">{error}</p>
+          )}
+
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full"
+            disabled={loading}
+          >
+            {loading ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : null}
+            {isSignUp ? t('signUpButton') : t('emailButton')}
+          </Button>
+        </form>
+
+        <p className="text-center text-sm text-muted-foreground">
+          {isSignUp ? t('hasAccount') : t('noAccount')}{' '}
+          <button
+            onClick={() => { setIsSignUp(!isSignUp); setError('') }}
+            className="font-medium text-primary hover:underline"
+          >
+            {isSignUp ? t('signInLink') : t('signUpLink')}
+          </button>
+        </p>
       </div>
     </div>
   )

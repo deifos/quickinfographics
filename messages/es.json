@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "title": "Hola mundo!",
-    "description": "Bienvenido a nuestra aplicacion internacionalizada"
+    "title": "QuickInfographics",
+    "description": "Convierte videos de YouTube en hermosas infografias"
   },
   "LanguageSwitcher": {
     "label": "Idioma",
@@ -10,75 +10,55 @@
   },
   "Auth": {
     "title": "Inicia sesion en tu cuenta",
-    "subtitle": "Continua con tu cuenta de Google",
+    "signUpTitle": "Crea tu cuenta",
+    "subtitle": "Elige tu metodo de inicio de sesion",
     "googleButton": "Continuar con Google",
+    "or": "o",
+    "namePlaceholder": "Nombre completo",
+    "emailPlaceholder": "Correo electronico",
+    "passwordPlaceholder": "Contrasena (min 8 caracteres)",
+    "emailButton": "Iniciar sesion con email",
+    "signUpButton": "Crear cuenta",
+    "noAccount": "No tienes cuenta?",
+    "hasAccount": "Ya tienes cuenta?",
+    "signUpLink": "Registrate",
+    "signInLink": "Iniciar sesion",
+    "errorGeneric": "Algo salio mal. Intenta de nuevo.",
     "loading": "Cargando..."
   },
   "Dashboard": {
-    "title": "Panel de control",
-    "welcome": "Bienvenido, {name}!",
-    "description": "Has iniciado sesion en tu panel de control.",
-    "signOut": "Cerrar sesion",
-    "loading": "Cargando..."
+    "title": "Crear Infografia",
+    "loading": "Cargando...",
+    "credits": "creditos",
+    "credit": "credito",
+    "outOfCredits": "Te quedaste sin creditos",
+    "buyCredits": "Comprar Mas Creditos",
+    "buyCreditsDesc": "Elige un paquete de creditos para seguir creando infografias.",
+    "buyButton": "Comprar {credits} Creditos",
+    "maybeLater": "Quiza Despues",
+    "buyToGenerate": "Compra Creditos para Generar",
+    "generating": "Generando...",
+    "oneCredit": "1 credito"
   },
-  "Landing": {
-    "nav": {
-      "brand": "Starter",
-      "features": "Funciones",
-      "stack": "Tecnologias",
-      "signIn": "Iniciar Sesion",
-      "getStarted": "Comenzar"
-    },
-    "hero": {
-      "badge": "Plantilla Starter de Codigo Abierto",
-      "title": "Cada Gran Producto",
-      "titleHighlight": "Empieza Aqui",
-      "description": "Auth, i18n, base de datos y componentes UI — todo listo para produccion. Deja de configurar infraestructura. Empieza a construir lo que importa.",
-      "cta": "Empieza a Construir",
-      "ctaSecondary": "Explorar Funciones",
-      "terminal": {
-        "auth": "Autenticacion configurada (Better Auth + Google OAuth)",
-        "i18n": "Internacionalizacion lista (EN/ES con next-intl)",
-        "database": "Base de datos conectada (PostgreSQL + Prisma ORM)",
-        "ui": "Componentes UI instalados (shadcn/ui + Tailwind CSS)",
-        "ready": "\u2713 Listo en http://localhost:3000"
-      }
-    },
+  "Pricing": {
+    "title": "Paga por infografia",
+    "subtitle": "Comienza con 1 credito gratis. Compra mas cuando los necesites — sin suscripciones.",
+    "starter": "Inicial",
+    "popular": "Popular",
+    "pro": "Pro",
+    "mostPopular": "Mas Popular",
+    "bestValue": "Mejor Valor",
+    "perCredit": "por infografia",
+    "save25": "Ahorra 25%",
     "features": {
-      "label": "Funciones Incluidas",
-      "title": "Todo lo que necesitas para enviar mas rapido",
-      "description": "Cada gran producto comienza con una base solida. Este starter te da lo esencial para que puedas enfocarte en lo que hace unica a tu app.",
-      "auth": {
-        "title": "Autenticacion",
-        "description": "Pre-configurado con Better Auth soportando email/password y Google OAuth. Gestion de sesiones, rutas protegidas y perfiles de usuario — listo para usar."
-      },
-      "i18n": {
-        "title": "Internacionalizacion",
-        "description": "Configuracion completa de i18n con next-intl. Ingles y Espanol incluidos como punto de partida. Cambio de idioma basado en cookies con soporte de renderizado del servidor."
-      },
-      "database": {
-        "title": "Base de Datos y ORM",
-        "description": "PostgreSQL con Prisma ORM, pre-configurado con tablas de autenticacion, migraciones y un patron de cliente singleton. Listo para tus modelos de datos."
-      },
-      "components": {
-        "title": "Componentes UI",
-        "description": "Componentes hermosos y accesibles de shadcn/ui con primitivos Radix. Tailwind CSS v4, soporte de modo oscuro y un sistema de diseno consistente integrado."
-      }
+      "credits": "{count} creditos de infografia",
+      "ratios": "Los 3 formatos de aspecto",
+      "hdDownloads": "Descargas en alta calidad",
+      "neverExpire": "Los creditos nunca expiran",
+      "bonusCredits": "2 creditos de bonificacion incluidos",
+      "bestPrice": "Mejor precio por infografia"
     },
-    "stack": {
-      "title": "Construido sobre bases modernas",
-      "description": "Tecnologias cuidadosamente seleccionadas que funcionan perfectamente juntas. Sin compromisos."
-    },
-    "cta": {
-      "badge": "Tu Viaje Comienza Aqui",
-      "title": "Tu plataforma de lanzamiento esta lista",
-      "description": "Clonalo. Configuralo. Envialo. La base esta construida — ahora ve a crear algo que el mundo necesita.",
-      "button": "Empieza a Construir Ahora"
-    },
-    "footer": {
-      "copyright": "Next.js Starter Template. Todos los derechos reservados.",
-      "tagline": "Construido para creadores que entregan."
-    }
+    "getStarted": "Comenzar"
   },
   "Changelog": {
     "title": "Historial de Cambios",
