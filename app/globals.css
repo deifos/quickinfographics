@@ -251,6 +251,70 @@
   transform: scale(1.02);
 }
 
+/* ---- Hero Image Glow Border ---- */
+
+.hero-glow-border {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.4s ease;
+}
+
+.hero-glow-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 4px;
+  background: conic-gradient(
+    from var(--border-angle),
+    oklch(0.816 0.137 195 / 0) 0%,
+    oklch(0.816 0.137 195) 25%,
+    oklch(0.75 0.18 170) 50%,
+    oklch(0.816 0.137 195) 75%,
+    oklch(0.816 0.137 195 / 0) 100%
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: border-spin 6s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hero-glow-border:hover::before {
+  opacity: 1;
+}
+
+.hero-glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle),
+    oklch(0.816 0.137 195 / 0) 0%,
+    oklch(0.816 0.137 195 / 0.4) 25%,
+    oklch(0.75 0.18 170 / 0.6) 50%,
+    oklch(0.816 0.137 195 / 0.4) 75%,
+    oklch(0.816 0.137 195 / 0) 100%
+  );
+  filter: blur(18px);
+  animation: border-spin 6s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hero-glow-border:hover::after {
+  opacity: 1;
+}
+
+.hero-glow-border:hover {
+  transform: scale(1.01);
+}
+
 /* ---- Scroll-Driven Reveals ---- */
 
 .scroll-reveal {

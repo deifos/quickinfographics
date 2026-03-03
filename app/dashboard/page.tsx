@@ -44,6 +44,7 @@ import {
   Box,
   Layers,
   CircleDot,
+  Shield,
 } from 'lucide-react'
 import { saveInfographic, getInfographics, deleteInfographic, type Infographic } from '@/lib/storage'
 
@@ -364,6 +365,16 @@ export default function DashboardPage() {
             </span>
           </Link>
           <div className="flex items-center gap-3">
+            {/* Admin Link */}
+            {session.user?.role === 'admin' && (
+              <Link
+                href="/admin"
+                className="flex items-center gap-1.5 rounded-full bg-slate-900/10 px-3 py-1.5 text-xs font-semibold text-slate-700 ring-1 ring-slate-900/10 transition-colors hover:bg-slate-900/15 dark:bg-white/10 dark:text-slate-200 dark:ring-white/10 dark:hover:bg-white/15"
+              >
+                <Shield className="h-3.5 w-3.5" />
+                Admin
+              </Link>
+            )}
             {/* Credit Badge */}
             {credits !== null && (
               <button

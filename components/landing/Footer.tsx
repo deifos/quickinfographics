@@ -33,7 +33,7 @@ export function Footer() {
             href="/changelog"
             className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            v1.1.0
+            v1.2.0
           </Link>
           <span className="text-muted-foreground/40">·</span>
           <a href="https://github.com/deifos/quickinfographics" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">

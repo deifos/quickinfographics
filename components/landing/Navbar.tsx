@@ -9,7 +9,10 @@ export function Navbar() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
             <Zap className="h-5 w-5 text-slate-900" />
           </div>
-          <h2 className="text-xl font-bold tracking-tight">QuickInfographics</h2>
+          <h2 className="text-xl font-bold tracking-tight">
+            <span className="sm:hidden">QI</span>
+            <span className="hidden sm:inline">QuickInfographics</span>
+          </h2>
         </div>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -26,9 +29,10 @@ export function Navbar() {
 
         <Link
           href="/dashboard"
-          className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-slate-900 transition-transform hover:scale-105"
+          className="flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-slate-900 transition-transform hover:scale-105"
         >
           Get Started
+          <span className="rounded-full bg-slate-900/15 px-1.5 py-0.5 text-[10px] font-bold uppercase">Free</span>
         </Link>
       </div>
     </nav>

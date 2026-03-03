@@ -21,7 +21,7 @@ export function HowItWorks() {
             </div>
             <h3 className="mb-4 text-2xl font-bold">1. Paste a YouTube Link</h3>
             <p className="text-muted-foreground">
-              Copy any YouTube video URL and paste it in. Then pick your preferred aspect ratio — portrait, landscape, or square.
+              Copy any YouTube video URL and paste it in. Then pick your style and aspect ratio — portrait, landscape, or square.
             </p>
           </div>
 

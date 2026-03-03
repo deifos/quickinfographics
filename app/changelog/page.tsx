@@ -4,10 +4,23 @@ import { Footer } from '@/components/landing/Footer'
 
 const changelog = [
   {
+    version: '1.2.0',
+    date: '2026-03-02',
+    title: 'Analytics & Admin Access',
+    latest: true,
+    changes: [
+      { type: 'added' as const, text: 'Umami analytics integration via environment variable' },
+      { type: 'added' as const, text: 'Admin dashboard link in header for admin users' },
+      { type: 'added' as const, text: 'Hero image animated glow border on hover' },
+      { type: 'changed' as const, text: 'Primary color tuned to match production oklch values' },
+      { type: 'fixed' as const, text: 'Pricing card buttons now aligned at the bottom across all tiers' },
+    ],
+  },
+  {
     version: '1.1.0',
     date: '2026-03-02',
     title: 'Production Ready',
-    latest: true,
+    latest: false,
     changes: [
       { type: 'added' as const, text: 'Full SEO setup — Open Graph image, meta tags, sitemap, and robots.txt' },
       { type: 'added' as const, text: 'Custom 404 and error pages with animated visuals' },

@@ -3,6 +3,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { ConvexClientProvider } from "@/components/ConvexClientProvider";
+import { Analytics } from "@/components/Analytics";
 import { getToken } from "@/lib/auth-server";
 import "./globals.css";
 
@@ -98,6 +99,7 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}
       >
+        <Analytics />
         <ConvexClientProvider initialToken={token}>
           <NextIntlClientProvider messages={messages}>
             {children}
