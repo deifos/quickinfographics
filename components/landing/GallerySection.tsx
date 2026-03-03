@@ -3,6 +3,7 @@ const SAMPLES = [
   { id: '0LnLn2MK62A', title: 'Compound Growth', tilt: 'rotate-[1.5deg]' },
   { id: '9r4kS9zZj9s', title: 'UGC Strategy', tilt: 'rotate-[2deg]' },
   { id: 'qIlX7cQ2UdU', title: 'Key Takeaways', tilt: 'rotate-[-1.5deg]' },
+  { id: 'Gv2fzC96Z40', title: 'Quick Overview', tilt: 'rotate-[1deg]' },
 ]
 
 export function GallerySection() {

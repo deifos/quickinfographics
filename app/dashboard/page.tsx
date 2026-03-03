@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
@@ -128,6 +128,7 @@ export default function DashboardPage() {
   const [generatingVideoId, setGeneratingVideoId] = useState<string | null>(null)
   const [showPricing, setShowPricing] = useState(false)
   const [buyingPlan, setBuyingPlan] = useState<string | null>(null)
+  const previewRef = useRef<HTMLDivElement>(null)
 
   // Credits system
   const creditsData = useQuery(api.credits.getCredits)
@@ -300,6 +301,7 @@ export default function DashboardPage() {
             await saveInfographic(infographic)
             await loadInfographics()
             setPreviewImage(event.image)
+            setTimeout(() => previewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
           }
         }
       }
@@ -699,7 +701,7 @@ export default function DashboardPage() {
 
         {/* Preview of just-generated image */}
         {previewImage && (
-          <div className="mb-16">
+          <div ref={previewRef} className="mb-16">
             <div className="mx-auto max-w-2xl">
               <div className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm">
                 <div className="flex items-center justify-between mb-3">
