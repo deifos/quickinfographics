@@ -113,8 +113,8 @@ export default function AdminPage() {
     )
   }
 
-  const formatCurrency = (cents: number) => {
-    return `$${(cents / 100).toFixed(2)}`
+  const formatCurrency = (dollars: number) => {
+    return `$${dollars.toFixed(2)}`
   }
 
   const formatDate = (timestamp: number | string | Date) => {
