@@ -1,26 +1,32 @@
 const SAMPLES = [
-  { id: 't8wulNsNYc8', title: 'App Gold Rush', tilt: 'rotate-[-2deg]' },
-  { id: '0LnLn2MK62A', title: 'Compound Growth', tilt: 'rotate-[1.5deg]' },
-  { id: '9r4kS9zZj9s', title: 'UGC Strategy', tilt: 'rotate-[2deg]' },
-  { id: 'qIlX7cQ2UdU', title: 'Key Takeaways', tilt: 'rotate-[-1.5deg]' },
-  { id: 'Gv2fzC96Z40', title: 'Quick Overview', tilt: 'rotate-[1deg]' },
-]
+  { id: "t8wulNsNYc8", title: "App Gold Rush", tilt: "rotate-[-2deg]" },
+  { id: "0LnLn2MK62A", title: "Compound Growth", tilt: "rotate-[1.5deg]" },
+  { id: "9r4kS9zZj9s", title: "UGC Strategy", tilt: "rotate-[2deg]" },
+  { id: "qIlX7cQ2UdU", title: "Key Takeaways", tilt: "rotate-[-1.5deg]" },
+  { id: "Gv2fzC96Z40", title: "Quick Overview", tilt: "rotate-[1deg]" },
+];
 
 export function GallerySection() {
   return (
     <section className="px-5 py-24 sm:px-8 lg:px-20" id="gallery">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-black tracking-tight">See What&apos;s Possible</h2>
+          <h2 className="mb-4 text-4xl font-black tracking-tight">
+            See What&apos;s Possible
+          </h2>
           <p className="text-muted-foreground">
-            From any YouTube video to a polished infographic — here&apos;s what our AI can create.
+            From any YouTube video to a polished infographic — here&apos;s what
+            our AI can create.
           </p>
         </div>
 
         {/* Masonry-style tilted grid — columns flow independently */}
         <div className="columns-1 gap-10 sm:columns-2 lg:gap-14">
           {SAMPLES.map((item) => (
-            <div key={item.id} className={`mb-10 break-inside-avoid ${item.tilt} transition-transform duration-500 hover:rotate-0`}>
+            <div
+              key={item.id}
+              className={`mb-10 break-inside-avoid ${item.tilt} transition-transform duration-500 hover:rotate-0`}
+            >
               {/* Glow wrapper + infographic */}
               <div className="gallery-item">
                 <img
@@ -52,5 +58,5 @@ export function GallerySection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

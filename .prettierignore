@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Auto-generated
+convex/_generated/
+
+# Lock files
+package-lock.json
+
+# Environment
+.env*
+
+# Public assets
+public/

@@ -25,11 +25,17 @@ export const getStats = query({
 
     // Revenue stats
     const totalRevenue = allPurchases.reduce((sum, p) => sum + p.amount, 0);
-    const totalCreditsSold = allPurchases.reduce((sum, p) => sum + p.credits, 0);
+    const totalCreditsSold = allPurchases.reduce(
+      (sum, p) => sum + p.credits,
+      0,
+    );
     const totalPurchases = allPurchases.length;
 
     // Revenue by plan
-    const revenueByPlan: Record<string, { count: number; revenue: number; credits: number }> = {};
+    const revenueByPlan: Record<
+      string,
+      { count: number; revenue: number; credits: number }
+    > = {};
     for (const p of allPurchases) {
       if (!revenueByPlan[p.plan]) {
         revenueByPlan[p.plan] = { count: 0, revenue: 0, credits: 0 };
@@ -40,9 +46,15 @@ export const getStats = query({
     }
 
     // Purchases over time periods
-    const purchasesToday = allPurchases.filter((p) => p.createdAt >= oneDayAgo).length;
-    const purchasesThisWeek = allPurchases.filter((p) => p.createdAt >= oneWeekAgo).length;
-    const purchasesThisMonth = allPurchases.filter((p) => p.createdAt >= oneMonthAgo).length;
+    const purchasesToday = allPurchases.filter(
+      (p) => p.createdAt >= oneDayAgo,
+    ).length;
+    const purchasesThisWeek = allPurchases.filter(
+      (p) => p.createdAt >= oneWeekAgo,
+    ).length;
+    const purchasesThisMonth = allPurchases.filter(
+      (p) => p.createdAt >= oneMonthAgo,
+    ).length;
 
     // Revenue over time periods
     const revenueToday = allPurchases
@@ -56,10 +68,14 @@ export const getStats = query({
       .reduce((sum, p) => sum + p.amount, 0);
 
     // Credits usage stats
-    const totalCreditsRemaining = allUserCredits.reduce((sum, u) => sum + u.credits, 0);
+    const totalCreditsRemaining = allUserCredits.reduce(
+      (sum, u) => sum + u.credits,
+      0,
+    );
     const totalUsersWithCredits = allUserCredits.length;
     const freeCreditsGiven = totalUsersWithCredits; // 1 free credit per user
-    const totalCreditsUsed = freeCreditsGiven + totalCreditsSold - totalCreditsRemaining;
+    const totalCreditsUsed =
+      freeCreditsGiven + totalCreditsSold - totalCreditsRemaining;
 
     // Recent purchases (latest 20)
     const recentPurchases = allPurchases

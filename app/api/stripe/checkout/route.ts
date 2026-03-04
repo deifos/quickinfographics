@@ -32,35 +32,23 @@ export async function POST(request: NextRequest) {
     // Verify authentication and get userId from session token
     const token = await getToken();
     if (!token) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const claims = decodeJwt(token);
     const userId = claims.sub;
     if (!userId) {
-      return NextResponse.json(
-        { error: "Invalid session" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Invalid session" }, { status: 401 });
     }
 
     const { plan, userEmail } = await request.json();
 
     if (!plan) {
-      return NextResponse.json(
-        { error: "Missing plan" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing plan" }, { status: 400 });
     }
 
     if (!(plan in PLANS)) {
-      return NextResponse.json(
-        { error: "Invalid plan" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
     }
 
     const selectedPlan = PLANS[plan as PlanId];
@@ -97,7 +85,7 @@ export async function POST(request: NextRequest) {
     console.error("Stripe checkout error:", err);
     return NextResponse.json(
       { error: "Failed to create checkout session" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

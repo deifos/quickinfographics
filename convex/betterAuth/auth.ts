@@ -25,7 +25,12 @@ export const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
     appName: "QuickInfographics",
     baseURL: process.env.SITE_URL,
     secret: process.env.BETTER_AUTH_SECRET,
-    trustedOrigins: ["http://127.0.0.1:3000", "http://localhost:3000", "https://quickinfographics.com", "https://www.quickinfographics.com"],
+    trustedOrigins: [
+      "http://127.0.0.1:3000",
+      "http://localhost:3000",
+      "https://quickinfographics.com",
+      "https://www.quickinfographics.com",
+    ],
     database: authComponent.adapter(ctx),
     emailAndPassword: {
       enabled: true,

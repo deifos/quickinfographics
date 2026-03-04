@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
   if (!sig) {
     return NextResponse.json(
       { error: "Missing stripe-signature header" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -32,13 +32,13 @@ export async function POST(request: NextRequest) {
     event = stripe.webhooks.constructEvent(
       body,
       sig,
-      process.env.STRIPE_WEBHOOK_SECRET!
+      process.env.STRIPE_WEBHOOK_SECRET!,
     );
   } catch (err) {
     console.error("Webhook signature verification failed:", err);
     return NextResponse.json(
       { error: "Webhook signature verification failed" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -68,13 +68,13 @@ export async function POST(request: NextRequest) {
       });
 
       console.log(
-        `Credits added: ${credits} for user ${userId} (plan: ${plan})`
+        `Credits added: ${credits} for user ${userId} (plan: ${plan})`,
       );
     } catch (err) {
       console.error("Failed to add credits:", err);
       return NextResponse.json(
         { error: "Failed to process credit addition" },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }

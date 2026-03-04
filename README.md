@@ -24,18 +24,18 @@ Paste a link, pick a style and aspect ratio, and download a polished infographic
 
 ## Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| [Next.js 16](https://nextjs.org) | React framework (App Router) |
-| [React 19](https://react.dev) | UI library |
-| [TypeScript](https://www.typescriptlang.org) | Type safety |
-| [Tailwind CSS 4](https://tailwindcss.com) | Styling |
-| [Convex](https://convex.dev) | Backend database & real-time sync |
-| [Better Auth](https://www.better-auth.com) | Authentication (Google OAuth + email/password) |
-| [Google Gemini AI](https://ai.google.dev) | Video analysis + infographic generation |
-| [Stripe](https://stripe.com) | Payments & checkout |
-| [shadcn/ui](https://ui.shadcn.com) | UI components |
-| [next-intl](https://next-intl.dev) | Internationalization |
+| Technology                                   | Purpose                                        |
+| -------------------------------------------- | ---------------------------------------------- |
+| [Next.js 16](https://nextjs.org)             | React framework (App Router)                   |
+| [React 19](https://react.dev)                | UI library                                     |
+| [TypeScript](https://www.typescriptlang.org) | Type safety                                    |
+| [Tailwind CSS 4](https://tailwindcss.com)    | Styling                                        |
+| [Convex](https://convex.dev)                 | Backend database & real-time sync              |
+| [Better Auth](https://www.better-auth.com)   | Authentication (Google OAuth + email/password) |
+| [Google Gemini AI](https://ai.google.dev)    | Video analysis + infographic generation        |
+| [Stripe](https://stripe.com)                 | Payments & checkout                            |
+| [shadcn/ui](https://ui.shadcn.com)           | UI components                                  |
+| [next-intl](https://next-intl.dev)           | Internationalization                           |
 
 ## Getting Started
 
@@ -120,18 +120,18 @@ Open [http://localhost:3000](http://localhost:3000).
 
 See [`.env.example`](.env.example) for the full list. All secrets are loaded from environment variables — nothing is hardcoded in source.
 
-| Variable | Required | Description |
-|---|---|---|
-| `GEMINI_API_KEY` | Yes | Google Gemini API key |
-| `CONVEX_DEPLOYMENT` | Yes | Convex deployment identifier |
-| `NEXT_PUBLIC_CONVEX_URL` | Yes | Convex cloud URL |
-| `BETTER_AUTH_SECRET` | Yes | Auth encryption secret |
-| `GOOGLE_CLIENT_ID` | Yes | Google OAuth client ID |
-| `GOOGLE_CLIENT_SECRET` | Yes | Google OAuth client secret |
-| `STRIPE_SECRET_KEY` | Yes | Stripe secret key |
-| `STRIPE_WEBHOOK_SECRET` | Yes | Stripe webhook signing secret |
-| `WEBHOOK_SECRET` | Yes | Internal webhook verification secret |
-| `ADMIN_USER_IDS` | No | Comma-separated admin user IDs |
+| Variable                 | Required | Description                          |
+| ------------------------ | -------- | ------------------------------------ |
+| `GEMINI_API_KEY`         | Yes      | Google Gemini API key                |
+| `CONVEX_DEPLOYMENT`      | Yes      | Convex deployment identifier         |
+| `NEXT_PUBLIC_CONVEX_URL` | Yes      | Convex cloud URL                     |
+| `BETTER_AUTH_SECRET`     | Yes      | Auth encryption secret               |
+| `GOOGLE_CLIENT_ID`       | Yes      | Google OAuth client ID               |
+| `GOOGLE_CLIENT_SECRET`   | Yes      | Google OAuth client secret           |
+| `STRIPE_SECRET_KEY`      | Yes      | Stripe secret key                    |
+| `STRIPE_WEBHOOK_SECRET`  | Yes      | Stripe webhook signing secret        |
+| `WEBHOOK_SECRET`         | Yes      | Internal webhook verification secret |
+| `ADMIN_USER_IDS`         | No       | Comma-separated admin user IDs       |
 
 ## Scripts
 

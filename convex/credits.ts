@@ -134,11 +134,16 @@ export const addCredits = internalMutation({
     plan: v.string(),
     amountPaid: v.number(),
   },
-  handler: async (ctx, { userId, amount, stripeSessionId, plan, amountPaid }) => {
+  handler: async (
+    ctx,
+    { userId, amount, stripeSessionId, plan, amountPaid },
+  ) => {
     // Check if this purchase was already processed (idempotency)
     const existingPurchase = await ctx.db
       .query("creditPurchases")
-      .withIndex("stripeSessionId", (q) => q.eq("stripeSessionId", stripeSessionId))
+      .withIndex("stripeSessionId", (q) =>
+        q.eq("stripeSessionId", stripeSessionId),
+      )
       .first();
 
     if (existingPurchase) {
@@ -196,7 +201,10 @@ export const addCreditsFromWebhook = action({
     plan: v.string(),
     amountPaid: v.number(),
   },
-  handler: async (ctx, { webhookSecret, ...rest }): Promise<{ credits: number; alreadyProcessed: boolean }> => {
+  handler: async (
+    ctx,
+    { webhookSecret, ...rest },
+  ): Promise<{ credits: number; alreadyProcessed: boolean }> => {
     const secret = process.env.WEBHOOK_SECRET;
     if (!secret || webhookSecret !== secret) {
       throw new Error("Unauthorized");

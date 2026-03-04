@@ -96,7 +96,14 @@ export default function GlobalError({
             An unexpected error occurred. Don&apos;t worry, your data is safe.
           </p>
 
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "12px",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
             <button
               onClick={() => reset()}
               style={{
@@ -111,7 +118,9 @@ export default function GlobalError({
                 boxShadow: "0 4px 14px rgba(25, 217, 230, 0.3)",
                 transition: "transform 0.2s",
               }}
-              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.transform = "scale(1.02)")
+              }
               onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
               Try Again
@@ -129,8 +138,12 @@ export default function GlobalError({
                 cursor: "pointer",
                 transition: "background 0.2s",
               }}
-              onMouseOver={(e) => (e.currentTarget.style.background = "#f3f4f6")}
-              onMouseOut={(e) => (e.currentTarget.style.background = "transparent")}
+              onMouseOver={(e) =>
+                (e.currentTarget.style.background = "#f3f4f6")
+              }
+              onMouseOut={(e) =>
+                (e.currentTarget.style.background = "transparent")
+              }
             >
               Back to Home
             </button>

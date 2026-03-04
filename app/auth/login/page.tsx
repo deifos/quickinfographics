@@ -1,42 +1,42 @@
-'use client'
+"use client";
 
-import { signIn, signUp, useSession } from '@/lib/auth-client'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { Button } from '@/components/ui/button'
-import { Zap, Loader2 } from 'lucide-react'
-import Link from 'next/link'
+import { signIn, signUp, useSession } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { Zap, Loader2 } from "lucide-react";
+import Link from "next/link";
 
 export default function LoginPage() {
-  const t = useTranslations('Auth')
-  const router = useRouter()
-  const { data: session, isPending } = useSession()
+  const t = useTranslations("Auth");
+  const router = useRouter();
+  const { data: session, isPending } = useSession();
 
-  const [isSignUp, setIsSignUp] = useState(false)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (session) {
-      router.push('/dashboard')
+      router.push("/dashboard");
     }
-  }, [session, router])
+  }, [session, router]);
 
   const handleGoogleSignIn = async () => {
     await signIn.social({
-      provider: 'google',
-      callbackURL: '/dashboard',
-    })
-  }
+      provider: "google",
+      callbackURL: "/dashboard",
+    });
+  };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
     try {
       if (isSignUp) {
@@ -44,35 +44,35 @@ export default function LoginPage() {
           name,
           email,
           password,
-        })
+        });
         if (result.error) {
-          setError(result.error.message || t('errorGeneric'))
-          return
+          setError(result.error.message || t("errorGeneric"));
+          return;
         }
       } else {
         const result = await signIn.email({
           email,
           password,
-        })
+        });
         if (result.error) {
-          setError(result.error.message || t('errorGeneric'))
-          return
+          setError(result.error.message || t("errorGeneric"));
+          return;
         }
       }
-      router.push('/dashboard')
+      router.push("/dashboard");
     } catch {
-      setError(t('errorGeneric'))
+      setError(t("errorGeneric"));
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   if (isPending) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-zinc-900">
-        <div className="text-muted-foreground">{t('loading')}</div>
+        <div className="text-muted-foreground">{t("loading")}</div>
       </div>
-    )
+    );
   }
 
   return (
@@ -80,7 +80,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md space-y-6 rounded-2xl border border-gray-200 bg-white p-8 shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
         <div className="text-center">
           <Link href="/" className="mb-6 inline-flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-teal-600 shadow-md shadow-primary/20 dark:to-teal-300">
+            <div className="from-primary shadow-primary/20 flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br to-teal-600 shadow-md dark:to-teal-300">
               <Zap className="h-4 w-4 text-white dark:text-black" />
             </div>
             <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -88,11 +88,9 @@ export default function LoginPage() {
             </span>
           </Link>
           <h1 className="mt-6 text-2xl font-bold text-gray-900 dark:text-white">
-            {isSignUp ? t('signUpTitle') : t('title')}
+            {isSignUp ? t("signUpTitle") : t("title")}
           </h1>
-          <p className="mt-2 text-muted-foreground">
-            {t('subtitle')}
-          </p>
+          <p className="text-muted-foreground mt-2">{t("subtitle")}</p>
         </div>
 
         <Button
@@ -119,7 +117,7 @@ export default function LoginPage() {
               d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
             />
           </svg>
-          {t('googleButton')}
+          {t("googleButton")}
         </Button>
 
         <div className="relative">
@@ -127,8 +125,8 @@ export default function LoginPage() {
             <div className="w-full border-t border-gray-200 dark:border-zinc-700" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-white px-3 text-muted-foreground dark:bg-zinc-900">
-              {t('or')}
+            <span className="text-muted-foreground bg-white px-3 dark:bg-zinc-900">
+              {t("or")}
             </span>
           </div>
         </div>
@@ -137,58 +135,52 @@ export default function LoginPage() {
           {isSignUp && (
             <input
               type="text"
-              placeholder={t('namePlaceholder')}
+              placeholder={t("namePlaceholder")}
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-primary/50 focus:bg-white focus:ring-2 focus:ring-primary/20 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
+              className="placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm transition-colors outline-none focus:bg-white focus:ring-2 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
             />
           )}
           <input
             type="email"
-            placeholder={t('emailPlaceholder')}
+            placeholder={t("emailPlaceholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-primary/50 focus:bg-white focus:ring-2 focus:ring-primary/20 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
+            className="placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm transition-colors outline-none focus:bg-white focus:ring-2 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
           />
           <input
             type="password"
-            placeholder={t('passwordPlaceholder')}
+            placeholder={t("passwordPlaceholder")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             minLength={8}
-            className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-primary/50 focus:bg-white focus:ring-2 focus:ring-primary/20 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
+            className="placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20 w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm transition-colors outline-none focus:bg-white focus:ring-2 dark:border-zinc-700 dark:bg-zinc-800 dark:focus:bg-zinc-800"
           />
 
-          {error && (
-            <p className="text-sm text-destructive">{error}</p>
-          )}
+          {error && <p className="text-destructive text-sm">{error}</p>}
 
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full"
-            disabled={loading}
-          >
-            {loading ? (
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            ) : null}
-            {isSignUp ? t('signUpButton') : t('emailButton')}
+          <Button type="submit" size="lg" className="w-full" disabled={loading}>
+            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+            {isSignUp ? t("signUpButton") : t("emailButton")}
           </Button>
         </form>
 
-        <p className="text-center text-sm text-muted-foreground">
-          {isSignUp ? t('hasAccount') : t('noAccount')}{' '}
+        <p className="text-muted-foreground text-center text-sm">
+          {isSignUp ? t("hasAccount") : t("noAccount")}{" "}
           <button
-            onClick={() => { setIsSignUp(!isSignUp); setError('') }}
-            className="font-medium text-primary hover:underline"
+            onClick={() => {
+              setIsSignUp(!isSignUp);
+              setError("");
+            }}
+            className="text-primary font-medium hover:underline"
           >
-            {isSignUp ? t('signInLink') : t('signUpLink')}
+            {isSignUp ? t("signInLink") : t("signUpLink")}
           </button>
         </p>
       </div>
     </div>
-  )
+  );
 }

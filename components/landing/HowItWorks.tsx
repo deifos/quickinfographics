@@ -1,4 +1,4 @@
-import { Link2, Sparkles, Download } from 'lucide-react'
+import { Link2, Sparkles, Download } from "lucide-react";
 
 export function HowItWorks() {
   return (
@@ -8,20 +8,22 @@ export function HowItWorks() {
           <h2 className="mb-4 text-4xl font-black tracking-tight md:text-5xl">
             How It Works
           </h2>
-          <p className="mx-auto max-w-[700px] text-lg text-muted-foreground">
-            Go from a YouTube link to a downloadable infographic in under a minute.
+          <p className="text-muted-foreground mx-auto max-w-[700px] text-lg">
+            Go from a YouTube link to a downloadable infographic in under a
+            minute.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Step 1 */}
           <div className="group flex flex-col items-center text-center">
-            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:rotate-6">
+            <div className="bg-primary/10 text-primary mb-6 flex h-20 w-20 items-center justify-center rounded-2xl transition-transform group-hover:rotate-6">
               <Link2 className="h-9 w-9" />
             </div>
             <h3 className="mb-4 text-2xl font-bold">1. Paste a YouTube Link</h3>
             <p className="text-muted-foreground">
-              Copy any YouTube video URL and paste it in. Then pick your style and aspect ratio — portrait, landscape, or square.
+              Copy any YouTube video URL and paste it in. Then pick your style
+              and aspect ratio — portrait, landscape, or square.
             </p>
           </div>
 
@@ -32,7 +34,8 @@ export function HowItWorks() {
             </div>
             <h3 className="mb-4 text-2xl font-bold">2. AI Does the Work</h3>
             <p className="text-muted-foreground">
-              Our AI watches the video, pulls out the key points, and designs a clean infographic — all in real time.
+              Our AI watches the video, pulls out the key points, and designs a
+              clean infographic — all in real time.
             </p>
           </div>
 
@@ -43,11 +46,12 @@ export function HowItWorks() {
             </div>
             <h3 className="mb-4 text-2xl font-bold">3. Download &amp; Share</h3>
             <p className="text-muted-foreground">
-              Your infographic is ready. Download it in high resolution and share it anywhere — social media, presentations, or your blog.
+              Your infographic is ready. Download it in high resolution and
+              share it anywhere — social media, presentations, or your blog.
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
