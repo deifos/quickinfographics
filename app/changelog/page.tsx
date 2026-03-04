@@ -4,10 +4,21 @@ import { Footer } from '@/components/landing/Footer'
 
 const changelog = [
   {
+    version: '1.3.0',
+    date: '2026-03-03',
+    title: 'UX Polish',
+    latest: true,
+    changes: [
+      { type: 'added' as const, text: 'Auto-scroll to preview after infographic generation' },
+      { type: 'added' as const, text: 'New sample infographic in the landing page gallery' },
+      { type: 'fixed' as const, text: 'Currency formatting now correctly accepts dollars instead of cents' },
+    ],
+  },
+  {
     version: '1.2.0',
     date: '2026-03-02',
     title: 'Analytics & Admin Access',
-    latest: true,
+    latest: false,
     changes: [
       { type: 'added' as const, text: 'Umami analytics integration via environment variable' },
       { type: 'added' as const, text: 'Admin dashboard link in header for admin users' },
